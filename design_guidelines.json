@@ -1,0 +1,215 @@
+{
+  "project_name": "GovindasTech - Vedic Cyber-Divinity & OTT Platform",
+  "punchline": "Driven By Purpose. Powered by Intelligence",
+  "brand_essence": {
+    "concept": "Ancient Vedic craftsmanship fused with avant-garde streaming & engineering intelligence. Styled in resemblance of Lord Krishna — deep celestial midnight blue, gleaming sacred gold ornamentation, peacock feather hues (peacock cyan/emerald), fluted sound-resonance waveforms, and Sudarshana-inspired cosmic telemetry.",
+    "core_archetype": "Divine Techno-Vedic Elegance (Luxury + Cosmic Precision)",
+    "flagship_product": "GovindasStream - Divine End-to-End OTT Platform (Live, VOD, FAST, Dynamic Ad Insertion, Low-Latency CDN)",
+    "enterprise_pillar": "Sudarshana CRM & Omnichannel Telemetry Feedback Intelligence"
+  },
+  "typography": {
+    "font_family_recommendation": {
+      "display_sanskrit_inspired": "'Cinzel Decorative', 'Cinzel', serif",
+      "heading_serif": "'Playfair Display', 'Cormorant Garamond', serif",
+      "body_modern_sans": "'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif",
+      "mono_mantra_telemetry": "'JetBrains Mono', 'Fira Code', monospace"
+    },
+    "hierarchy": {
+      "hero_h1": "text-4xl sm:text-5xl lg:text-6xl font-serif tracking-tight leading-[1.08]",
+      "section_h2": "text-2xl sm:text-3xl lg:text-4xl font-serif tracking-tight",
+      "subsection_h3": "text-xl sm:text-2xl font-sans font-semibold tracking-tight",
+      "card_h4": "text-lg sm:text-xl font-sans font-medium",
+      "eyebrow_sanskrit_label": "text-xs uppercase tracking-[0.25em] font-mono text-amber-400/90",
+      "body": "text-base sm:text-lg leading-relaxed text-slate-300 font-light",
+      "caption_telemetry": "text-xs font-mono tracking-wider text-amber-200/70"
+    },
+    "google_fonts_import": "@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');"
+  },
+  "colors": {
+    "theme_mode": "dark_primary_vedic",
+    "palette": {
+      "krishna_void": "#030712",
+      "krishna_midnight_blue": "#060D24",
+      "krishna_celestial_navy": "#0B1536",
+      "sacred_gold": "#D4AF37",
+      "radiant_gold_glow": "#F59E0B",
+      "amber_flute": "#FBBF24",
+      "peacock_emerald": "#0D9488",
+      "peacock_cyan": "#06B6D4",
+      "peacock_azure": "#2563EB",
+      "divine_crimson_accent": "#E11D48",
+      "border_gold_subtle": "rgba(212, 175, 55, 0.22)",
+      "border_gold_active": "rgba(245, 158, 11, 0.65)",
+      "surface_glass": "rgba(6, 13, 36, 0.72)",
+      "surface_glass_high": "rgba(11, 21, 54, 0.85)"
+    },
+    "contrast_standards": {
+      "text_on_dark": "#F8FAFC (ratio > 14:1)",
+      "accent_gold_on_dark": "#FBBF24 (ratio > 8.5:1)",
+      "gold_hover": "hover:bg-amber-400 hover:text-slate-950 transition-colors duration-200"
+    }
+  },
+  "visual_enhancers": {
+    "golden_halo_glow": "box-shadow: 0 0 50px -10px rgba(212, 175, 55, 0.25), inset 0 1px 1px rgba(251, 191, 36, 0.3)",
+    "peacock_aurora_gradient": "linear-gradient(135deg, rgba(6,182,212,0.15) 0%, rgba(13,148,136,0.12) 50%, rgba(212,175,55,0.08) 100%)",
+    "vedic_motif_elements": [
+      "Flute resonance soundwave SVG ornament (Krishna's Bansuri vibration line)",
+      "Peacock feather eye concentric SVG emblem with emerald & gold radiant circles",
+      "Sudarshana chakra 8-spoke rotating telemetry ring in OTT live-transcoding monitor",
+      "Lotus petal sacred geometry corner borders (1px gold etched wireframes)",
+      "Subtle starry cosmic dust & golden starlight particles"
+    ],
+    "glassmorphism_treatment": "backdrop-blur-xl bg-[#060D24]/80 border border-[#D4AF37]/25 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+  },
+  "curated_image_urls": {
+    "peacock_feather_hero": {
+      "url": "https://images.unsplash.com/photo-1578885564199-db62248858cf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwxfHxwZWFjb2NrJTIwZmVhdGhlciUyMG1hY3JvfGVufDB8fHx8MTc5MTU2ODc0MXww&ixlib=rb-4.1.0&q=85",
+      "description": "Macro shot of iridescent teal and green peafowl feather, evoking Krishna's crown jewel (Mayur Pankh). Use in Hero right aesthetic frame and OTT audio-visual fidelity showcase.",
+      "category": "hero_accent_and_ott_fidelity"
+    },
+    "peacock_feather_detail": {
+      "url": "https://images.unsplash.com/photo-1596423748098-c22861e3034e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwzfHxwZWFjb2NrJTIwZmVhdGhlciUyMG1hY3JvfGVufDB8fHx8MTc5MTU2ODc0MXww&ixlib=rb-4.1.0&q=85",
+      "description": "Close-up peacock eye feather with deep blue iris and golden aura. Use for OTT 4K Ultra-HDR visual clarity indicator card.",
+      "category": "ott_features_visual"
+    },
+    "sacred_temple_geometry": {
+      "url": "https://images.pexels.com/photos/32762553/pexels-photo-32762553.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Intricate sacred wooden & gold temple carvings showcasing architectural mastery. Used in the 'Ancient Architecture meets Modern Distributed Systems' heritage card.",
+      "category": "engineering_philosophy"
+    },
+    "celestial_blue_cosmos": {
+      "url": "https://images.unsplash.com/photo-1597773150796-e5c14ebecbf5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwYmx1ZSUyMGFic3RyYWN0JTIwd2F2ZXxlbnwwfHx8fDE3OTE1Njg3NDF8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Fluid cosmic dark blue celestial silk wave symbolizing Krishna's divine form (Shyama) and endless high-throughput streaming bandwidth.",
+      "category": "ott_platform_hero_banner"
+    }
+  },
+  "layout_and_sections": {
+    "1_header": {
+      "type": "Fixed Glassmorphic Header with Gold Filigree Border",
+      "components": [
+        "GovindasTech brand identity with glowing peacock-feather monogram + Sanskrit glyph (गो)",
+        "Desktop Nav: OTT Platform, Engineering Bento, Sudarshana CRM, LivQure, Client Impact, Contact",
+        "CTA Button: 'Launch OTT Console' with golden shimmer glow",
+        "Testid: data-testid='nav-main-header'"
+      ]
+    },
+    "2_hero_section": {
+      "type": "Kinetic Hero with Vedic Divine Atmosphere",
+      "headline": "Engineering Tomorrow's Sacred Digital Platforms",
+      "punchline_display": "Driven By Purpose. Powered by Intelligence",
+      "sanskrit_mantra_sub": "योगः कर्मसु कौशलम् (Excellence in Action is Yoga)",
+      "description": "GovindasTech crafts enterprise-grade OTT streaming ecosystems, high-availability cloud backends, and AI-driven telemetry platforms. Bound by purpose, engineered with divine precision.",
+      "visuals": "Sudarshana rotating ring canvas + glowing flute soundwave + live telemetry ticker (32+ Projects, 24+ Products, 99.99% Low-Latency Uptime, Global CDN Nodes).",
+      "ctas": [
+        "Primary: 'Explore OTT Platform' (Golden gradient, gold glow, data-testid='hero-cta-ott')",
+        "Secondary: 'Initiate Consultation' (Transparent glass with gold border, data-testid='hero-cta-consult')"
+      ]
+    },
+    "3_ott_flagship_platform": {
+      "type": "Spotlight Showcase: 'GovindasStream' End-to-End OTT Solution",
+      "sub_features": [
+        "Ultra-low latency Live HLS/DASH Streaming (<500ms)",
+        "Enterprise VOD Transcoding Pipeline & Cloud Storage",
+        "FAST Channel Orchestration & Server-Side Ad Insertion (SSAI)",
+        "DRM Protection (Widevine, FairPlay, PlayReady) & Geo-fencing",
+        "Interactive Live Chat, Polls & Vedic Multi-audio Tracks (Dolby Atmos / 4K UHD)",
+        "Smart TV Apps (Android TV, Apple TV, FireTV, Tizen, WebOS) & Mobile SDKs"
+      ],
+      "interactive_demo": "Interactive Live Streaming Simulator switchable between 4K Live Broadcast, FAST Play-out, and Analytics Engine"
+    },
+    "4_crm_feedback_intelligence": {
+      "type": "Modern Sudarshana CRM & Real-time Feedback Showcase",
+      "sub_features": [
+        "Vedic Sentiment Telemetry: Real-time user emotion & NPS scoring with AI categorization",
+        "Omnichannel Viewer Support: Instant ticketing, live stream glitch diagnostics, automatic refund/entitlement sync",
+        "Predictive Churn Radar: Early alerts before viewer drop-off with algorithmic engagement triggers",
+        "Interactive Feedback Widget simulator where visitors can test instant reaction telemetry"
+      ]
+    },
+    "5_engineering_capabilities_bento": {
+      "type": "Tetris Asymmetric Bento Grid (12-column layout)",
+      "items": [
+        {
+          "title": "Cloud & Platform Engineering",
+          "span": "col-span-full md:col-span-8",
+          "desc": "Kubernetes orchestration, multi-region failover, auto-scaling microservices on AWS/GCP"
+        },
+        {
+          "title": "Backend Engineering",
+          "span": "col-span-full md:col-span-4",
+          "desc": "High-concurrency Go, Rust, and Node.js microservices with Redis caching & Kafka queues"
+        },
+        {
+          "title": "Mobile App Architecture",
+          "span": "col-span-full md:col-span-4",
+          "desc": "Flutter, React Native, Swift & Kotlin with offline sync & GPU acceleration"
+        },
+        {
+          "title": "Web & Enterprise Portals",
+          "span": "col-span-full md:col-span-4",
+          "desc": "Next.js, React 19, accessible WCAG 2.1 AAA dashboards with sub-second TTI"
+        },
+        {
+          "title": "AI & Predictive Solutions",
+          "span": "col-span-full md:col-span-4",
+          "desc": "Recommendation engines, metadata auto-tagging, intelligent content transcribing"
+        }
+      ]
+    },
+    "6_product_spotlight_livqure": {
+      "type": "High-Impact Healthcare Product Showcase (LivQure)",
+      "badge": "Flagship Healthcare Deployment",
+      "metrics": {
+        "patients": "432+ Active",
+        "appointments": "128 Daily",
+        "prescriptions": "256 Automated",
+        "revenue": "₹2.45L Run-Rate"
+      },
+      "desc": "LivQure bridges patients, super-specialists, and diagnostic pharmacies via unified digital records and low-latency telemedicine consultations."
+    },
+    "7_technologies_editorial_ribbon": {
+      "type": "Slow Editorial Vedic Tech Marquee",
+      "technologies": ["Go", "Kubernetes", "React 19", "Next.js", "Flutter", "Swift", "TypeScript", "Redis", "Kafka", "AWS Elemental", "FFmpeg", "Node.js", "Docker", "Java", "Python"],
+      "styling": "Font-mono with subtle gold divider dots and warm slate glow, slow elegant drift"
+    },
+    "8_heritage_and_numbers": {
+      "type": "Proof of Excellence & Sacred Numbers",
+      "stats": [
+        {"value": "32+", "label": "Projects Delivered", "sub": "Zero-downtime execution"},
+        {"value": "24+", "label": "Products Engineered", "sub": "Across 6 continents"},
+        {"value": "99.99%", "label": "SLA Uptime Focus", "sub": "High-reliability tier"},
+        {"value": "15M+", "label": "Stream Minutes Served", "sub": "Ultra-low buffering rate"}
+      ]
+    },
+    "9_minimal_enquiry_form": {
+      "type": "Refined Minimal Vedic Contact Terminal",
+      "fields": ["Full Name", "Work Email", "Requirement (OTT / Cloud / CRM / Custom Engineering)", "Project Vision"],
+      "action": "Dispatch with divine confirmation feedback and instant estimate trigger",
+      "testid": "data-testid='contact-enquiry-form'"
+    },
+    "10_footer": {
+      "type": "Cinematic Night Sky Vedic Footer",
+      "features": [
+        "Massive Typography: 'DRIVEN BY PURPOSE.' at the baseline",
+        "Sacred Sanskrit blessings & modern copyright (GovindasTech Pvt Ltd)",
+        "Quick links, OTT architecture docs link, security audits, and location (Bengaluru & Global Nodes)"
+      ]
+    }
+  },
+  "motion_and_interaction": {
+    "hover_effects": "Subtle 2px lift with golden aura blur-lg and gold border highlight",
+    "stagger_reveal": "Framer-motion staggered container with fade-in and translateY 16px",
+    "rotational_telemetry": "Slow 60s infinite rotation of the Sudarshana ring SVG indicator",
+    "accessibility": "Respects prefers-reduced-motion, all buttons have keyboard focus outline in amber-400"
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Strictly avoid generic AI slop: no standard purple/blue tech gradients (#7351B7 is forbidden). Use deep Krishna midnight navy (#060D24, #030712) with radiant gold (#D4AF37, #F59E0B) and peacock teal/cyan (#0D9488, #06B6D4).",
+    "Do not use generic centered layout. Keep asymmetric grids, strong left-aligned editorial typography, and high visual hierarchy.",
+    "Do not use Inter or plain Arial for headers. Use Cinzel or Playfair Display with tracking-tight for royal Vedic authority.",
+    "Ensure ALL interactive items (buttons, inputs, tabs, demo toggles) have data-testid attributes matching kebap-case convention.",
+    "All navigation and surface headers must have solid or heavy frosted glass backgrounds (never 100% transparent).",
+    "The punchline MUST prominently feature: 'Driven By Purpose. Powered by Intelligence'.",
+    "OTT streaming is the star offering: include an interactive OTT stream simulator or feature console so users immediately understand GovindasTech builds enterprise-grade live/VOD/FAST streaming products.",
+    "Include modern CRM & feedback features: real-time telemetry, sentiment analysis, viewer ticket escalation, and interactive feedback rating."
+  ]
+}

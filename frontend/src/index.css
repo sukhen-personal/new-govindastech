@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cinzel+Decorative:wght@700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Tiro+Devanagari+Sanskrit&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 222 47% 4%;
+        --foreground: 210 40% 98%;
+        --border: 45 60% 51%;
+        --radius: 0.5rem;
+    }
+    html {
+        scroll-behavior: auto;
+    }
+    body {
+        @apply bg-krishna-void text-slate-200 font-sans;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+    }
+    ::selection {
+        background: rgba(212, 175, 55, 0.85);
+        color: #030712;
+    }
+    *:focus-visible {
+        outline: 2px solid #fbbf24;
+        outline-offset: 2px;
+    }
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+}
+
+@layer utilities {
+    .text-gold-gradient {
+        background: linear-gradient(115deg, #fbbf24 0%, #d4af37 40%, #f59e0b 65%, #fde68a 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    .glass-vedic {
+        background: rgba(6, 13, 36, 0.72);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(212, 175, 55, 0.22);
+    }
+    .halo-gold {
+        box-shadow: 0 0 50px -10px rgba(212, 175, 55, 0.28), inset 0 1px 1px rgba(251, 191, 36, 0.25);
+    }
+    .text-outline-gold {
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(212, 175, 55, 0.4);
+    }
+    .grain-overlay {
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+        opacity: 0.05;
+        mix-blend-mode: overlay;
+    }
+    .starfield {
+        background-image:
+            radial-gradient(1px 1px at 18% 22%, rgba(253, 230, 138, 0.7) 50%, transparent 50%),
+            radial-gradient(1px 1px at 42% 68%, rgba(255, 255, 255, 0.5) 50%, transparent 50%),
+            radial-gradient(1.5px 1.5px at 63% 14%, rgba(251, 191, 36, 0.55) 50%, transparent 50%),
+            radial-gradient(1px 1px at 78% 44%, rgba(255, 255, 255, 0.4) 50%, transparent 50%),
+            radial-gradient(1px 1px at 8% 78%, rgba(6, 182, 212, 0.5) 50%, transparent 50%),
+            radial-gradient(1.5px 1.5px at 90% 84%, rgba(253, 230, 138, 0.45) 50%, transparent 50%),
+            radial-gradient(1px 1px at 55% 88%, rgba(255, 255, 255, 0.35) 50%, transparent 50%),
+            radial-gradient(1px 1px at 32% 46%, rgba(13, 148, 136, 0.55) 50%, transparent 50%);
+        background-size: 640px 640px;
+    }
+    .gold-hairline {
+        background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6), transparent);
+        height: 1px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
