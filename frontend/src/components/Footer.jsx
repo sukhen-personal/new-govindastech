@@ -75,7 +75,7 @@ export const Footer = () => (
         </div>
       </div>
 
-      <p className="font-display font-black text-[9vw] leading-none text-outline-gold text-center select-none whitespace-nowrap" aria-hidden="true">
+      <p className="font-display font-black text-[6.8vw] leading-none text-outline-gold text-center select-none whitespace-nowrap" aria-hidden="true">
         DRIVEN BY PURPOSE.
       </p>
 

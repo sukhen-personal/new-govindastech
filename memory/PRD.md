@@ -31,6 +31,7 @@ Redesign https://govindastech.com/ into a superior aesthetic look and feel. Stre
 - (2026-10-10) Mayur Pankh image frame removed from hero; hero is now text-led with two faint chakras (large right at 30% opacity, small counter-rotating bottom-left)
 - (2026-10-10) Chakra continuity: faint 440px Sudarshana ring added to PageHero — appears on all inner pages (services, products, case studies, tech stack, contact, all detail pages)
 - (2026-10-10) "Sarthi" chatbot popup (bottom-left): rule-based charioteer with greeting, 4 quick chips, keyword-matched answers covering OTT/services/products/cases/tech/pricing/contact, navigation links inside replies, typing indicator; MOCKED (client-side rule-based, no LLM backend since site is static-only)
+- (2026-10-10) Fix: footer "DRIVEN BY PURPOSE." outline text was clipped at the right edge — fluid size reduced to 6.8vw, verified fitting at 375/768/1366 px
 - Verified at 375 / 768 / 1366 px across all pages; nav, mobile menu, FAQ, consoles exercised; accent/text-size themes verified incl. persistence across reload; per-page og:image meta verified on service + case study pages; auto theme verified (resolves + labels current daypart); Sarthi verified (chips, free-text answers, in-chat navigation, mobile layout)
 
 ## Backlog
