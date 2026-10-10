@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { SlidersHorizontal, X, RotateCcw, Zap, ZapOff } from "lucide-react";
+import { SlidersHorizontal, X, RotateCcw, Zap, ZapOff, SunMoon } from "lucide-react";
 
 const ACCENTS = [
   { id: "gold", label: "Sacred Gold", swatch: "#D4AF37" },
@@ -9,14 +9,27 @@ const ACCENTS = [
 ];
 
 const SIZES = [
-  { id: "normal", label: "A", hint: "Default" },
-  { id: "large", label: "A+", hint: "Large" },
-  { id: "larger", label: "A++", hint: "Larger" },
+  { id: "normal", label: "A" },
+  { id: "large", label: "A+" },
+  { id: "larger", label: "A++" },
 ];
+
+export const daypartAccent = () => {
+  const h = new Date().getHours();
+  if (h >= 5 && h < 12) return { accent: "gold", part: "morning" };
+  if (h >= 12 && h < 17) return { accent: "peacock", part: "afternoon" };
+  if (h >= 17 && h < 21) return { accent: "crimson", part: "evening" };
+  return { accent: "gold", part: "night" };
+};
+
+export const resolveAccent = () => {
+  const stored = localStorage.getItem("gt-accent") || "gold";
+  return stored === "auto" ? daypartAccent().accent : stored;
+};
 
 export const applySettings = () => {
   const root = document.documentElement;
-  root.dataset.accent = localStorage.getItem("gt-accent") || "gold";
+  root.dataset.accent = resolveAccent();
   root.dataset.textsize = localStorage.getItem("gt-textsize") || "normal";
   root.classList.toggle("reduce-motion", localStorage.getItem("gt-motion") === "reduced");
 };
@@ -29,8 +42,17 @@ export const CustomizePanel = () => {
 
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && setOpen(false);
+    const sync = () => {
+      setAccent(localStorage.getItem("gt-accent") || "gold");
+      setTextsize(localStorage.getItem("gt-textsize") || "normal");
+      setMotionPref(localStorage.getItem("gt-motion") || "full");
+    };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    window.addEventListener("gt-settings", sync);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("gt-settings", sync);
+    };
   }, []);
 
   const save = (key, value, setter) => {
@@ -42,12 +64,15 @@ export const CustomizePanel = () => {
 
   const reset = () => {
     ["gt-accent", "gt-textsize", "gt-motion"].forEach((k) => localStorage.removeItem(k));
-    setAccent("gold");
-    setTextsize("normal");
-    setMotionPref("full");
     applySettings();
     window.dispatchEvent(new Event("gt-settings"));
   };
+
+  const auto = daypartAccent();
+  const accentLabel =
+    accent === "auto"
+      ? `Auto · ${ACCENTS.find((a) => a.id === auto.accent)?.label} (${auto.part})`
+      : ACCENTS.find((a) => a.id === accent)?.label;
 
   return (
     <>
@@ -74,7 +99,7 @@ export const CustomizePanel = () => {
             <p className="text-sm text-slate-400 font-light mb-6">Tune the experience like an app — saved on this device.</p>
 
             <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-slate-500 mb-3">Accent</p>
-            <div className="flex gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-1.5">
               {ACCENTS.map((a) => (
                 <button
                   key={a.id}
@@ -86,8 +111,19 @@ export const CustomizePanel = () => {
                   style={{ background: a.swatch }}
                 />
               ))}
+              <button
+                data-testid="accent-auto"
+                onClick={() => save("gt-accent", "auto", setAccent)}
+                aria-label="Auto accent by time of day"
+                title="Auto — shifts with the time of day"
+                className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 hover:scale-110 ${
+                  accent === "auto" ? "border-gold-flute bg-gold/15 text-gold-flute" : "border-slate-700 text-slate-400"
+                }`}
+              >
+                <SunMoon size={18} />
+              </button>
             </div>
-            <p className="text-xs font-mono tracking-wider text-gold-flute/80 -mt-4 mb-5">{ACCENTS.find((a) => a.id === accent)?.label}</p>
+            <p className="text-xs font-mono tracking-wider text-gold-flute/80 mb-5" data-testid="accent-label">{accentLabel}</p>
 
             <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-slate-500 mb-3">Text Size</p>
             <div className="flex gap-2 mb-6">

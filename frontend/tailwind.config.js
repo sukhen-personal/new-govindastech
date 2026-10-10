@@ -45,6 +45,10 @@ module.exports = {
           from: { transform: 'rotate(0deg)' },
           to: { transform: 'rotate(360deg)' },
         },
+        'chakra-spin-rev': {
+          from: { transform: 'rotate(360deg)' },
+          to: { transform: 'rotate(0deg)' },
+        },
         'glow-pulse': {
           '0%, 100%': { opacity: '0.5' },
           '50%': { opacity: '1' },
@@ -54,6 +58,7 @@ module.exports = {
         'marquee-drift': 'marquee-drift 52s linear infinite',
         'chakra-spin': 'chakra-spin 60s linear infinite',
         'chakra-spin-fast': 'chakra-spin 14s linear infinite',
+        'chakra-spin-rev': 'chakra-spin-rev 40s linear infinite',
         'glow-pulse': 'glow-pulse 4s ease-in-out infinite',
       },
     }

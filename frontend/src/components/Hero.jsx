@@ -33,7 +33,7 @@ export const Hero = () => {
     <section id="top" ref={ref} className="relative min-h-screen flex flex-col justify-center overflow-hidden starfield pt-28 pb-16">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_70%_20%,rgba(37,99,235,0.16),transparent),radial-gradient(ellipse_50%_40%_at_15%_80%,rgba(13,148,136,0.12),transparent),radial-gradient(ellipse_40%_35%_at_50%_50%,rgba(212,175,55,0.06),transparent)]" />
 
-      <motion.div style={{ y: yRing }} className="absolute -right-32 top-24 w-[520px] h-[520px] opacity-40 hidden md:block">
+      <motion.div style={{ y: yRing }} className="absolute -right-56 -top-16 w-[720px] h-[720px] opacity-50 hidden md:block pointer-events-none">
         <SudarshanaRing className="w-full h-full" />
       </motion.div>
 

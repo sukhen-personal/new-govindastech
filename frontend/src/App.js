@@ -69,7 +69,16 @@ function App() {
     applySettings();
     const sync = () => setMotionReduced(localStorage.getItem("gt-motion") === "reduced");
     window.addEventListener("gt-settings", sync);
-    return () => window.removeEventListener("gt-settings", sync);
+    const id = setInterval(() => {
+      if ((localStorage.getItem("gt-accent") || "gold") === "auto") {
+        applySettings();
+        window.dispatchEvent(new Event("gt-settings"));
+      }
+    }, 60000);
+    return () => {
+      window.removeEventListener("gt-settings", sync);
+      clearInterval(id);
+    };
   }, []);
 
   useEffect(() => {

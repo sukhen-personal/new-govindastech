@@ -25,7 +25,10 @@ Redesign https://govindastech.com/ into a superior aesthetic look and feel. Stre
 - (2026-10-10) OG/Twitter preview meta in index.html + generated og-image.png (1200×630, logo + punchline); per-page title/description updates via Seo component (og:image points at https://govindastech.com/og-image.png — upload og-image.png to web root when self-hosting)
 - (2026-10-10) Ten service deep-dive pages at /services/:slug — overview, 6 deliverables, 4-step approach, tech tags, related case study, prev/next navigation; data lives in src/data/services.js
 - (2026-10-10) "Make It Yours" customization panel (floating button): 3 accent themes (Sacred Gold / Peacock Teal / Divine Crimson via CSS variables), 3 text sizes, Full/Calm motion toggle (stops animations + smooth scroll), persisted in localStorage
-- Verified at 375 / 768 / 1366 px across all pages; nav, mobile menu, FAQ, consoles exercised; accent/text-size themes verified incl. persistence across reload
+- (2026-10-10) Per-page OG images: 13 unique 1200×630 cards generated (3 case studies + 10 services) in public/og/, wired into the Seo component with per-page og:title/description/image/url
+- (2026-10-10) Theme scheduler: "Auto" accent option in the customization panel — Sacred Gold (morning/night), Peacock Teal (afternoon), Divine Crimson (evening), re-resolved every 60s
+- (2026-10-10) Hero wheel redesigned as an ornate Sudarshana Chakra SVG: 24 flame teeth, engraved rings, 16 tipped spokes, 8 lotus petals, counter-rotating dash ring, glowing core; enlarged to 720px framing the peacock hero image
+- Verified at 375 / 768 / 1366 px across all pages; nav, mobile menu, FAQ, consoles exercised; accent/text-size themes verified incl. persistence across reload; per-page og:image meta verified on service + case study pages; auto theme verified (resolves + labels current daypart)
 
 ## Backlog
 - P0: Wire enquiry form to a backend/form service if mailto flow is not enough (currently mailto — functional but depends on visitor's email client)
