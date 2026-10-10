@@ -21,7 +21,11 @@ Redesign https://govindastech.com/ into a superior aesthetic look and feel. Stre
 - (2026-10-10) Three deep-dive case study pages: GovindasStream (6-stage streaming pipeline), LivQure (6-component architecture + dashboard), Sudarshana CRM (6-spoke intelligence chakra + live feedback widget)
 - (2026-10-10) Tech Stack page (Languages, Web, Mobile & TV, Backend & Data, Cloud, Media & Streaming)
 - (2026-10-10) Contact page with original form fields; submit opens prefilled email to hello@govindastech.com (works on static hosting); FAQ accordion with original 3 FAQs
-- Verified at 375 / 768 / 1366 px across all pages; nav, mobile menu, FAQ, consoles exercised
+- (2026-10-10) Original company GT logo integrated (navbar + footer) with provided favicons (32/48px), apple-touch-icon, favicon-192 + manifest.json (installable, app-like)
+- (2026-10-10) OG/Twitter preview meta in index.html + generated og-image.png (1200×630, logo + punchline); per-page title/description updates via Seo component (og:image points at https://govindastech.com/og-image.png — upload og-image.png to web root when self-hosting)
+- (2026-10-10) Ten service deep-dive pages at /services/:slug — overview, 6 deliverables, 4-step approach, tech tags, related case study, prev/next navigation; data lives in src/data/services.js
+- (2026-10-10) "Make It Yours" customization panel (floating button): 3 accent themes (Sacred Gold / Peacock Teal / Divine Crimson via CSS variables), 3 text sizes, Full/Calm motion toggle (stops animations + smooth scroll), persisted in localStorage
+- Verified at 375 / 768 / 1366 px across all pages; nav, mobile menu, FAQ, consoles exercised; accent/text-size themes verified incl. persistence across reload
 
 ## Backlog
 - P0: Wire enquiry form to a backend/form service if mailto flow is not enough (currently mailto — functional but depends on visitor's email client)

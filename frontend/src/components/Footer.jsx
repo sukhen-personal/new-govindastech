@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { LogoMark, FluteWave } from "./Logo";
+import { FluteWave } from "./Logo";
 
 const LINKS = [
   { label: "Home", to: "/" },
@@ -23,7 +23,7 @@ export const Footer = () => (
       <div className="flex flex-col lg:flex-row justify-between gap-12 mb-20">
         <div className="max-w-sm">
           <div className="flex items-center gap-3 mb-5">
-            <LogoMark size={42} />
+            <img src="/logo.png" alt="GovindasTech logo" className="w-12 h-12 object-contain" />
             <div>
               <p className="font-royal font-bold text-xl text-slate-50">GovindasTech</p>
               <p className="font-mantra text-xs text-gold/70">गोविन्दस्टेक</p>

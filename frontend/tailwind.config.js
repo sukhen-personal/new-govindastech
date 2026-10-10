@@ -23,9 +23,9 @@ module.exports = {
           navy: '#0B1536',
         },
         gold: {
-          DEFAULT: '#D4AF37',
-          glow: '#F59E0B',
-          flute: '#FBBF24',
+          DEFAULT: 'rgb(var(--c-gold) / <alpha-value>)',
+          glow: 'rgb(var(--c-glow) / <alpha-value>)',
+          flute: 'rgb(var(--c-flute) / <alpha-value>)',
         },
         peacock: {
           emerald: '#0D9488',

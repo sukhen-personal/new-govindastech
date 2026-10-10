@@ -1,12 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Lenis from "lenis";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, MotionConfig, useScroll, useSpring } from "framer-motion";
 import "@/App.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Seo } from "@/components/Seo";
+import { CustomizePanel, applySettings } from "@/components/CustomizePanel";
 import { Home } from "@/pages/Home";
 import { Services } from "@/pages/Services";
+import { ServiceDetail } from "@/pages/ServiceDetail";
 import { Products } from "@/pages/Products";
 import { CaseStudies } from "@/pages/CaseStudies";
 import { GovindasStreamCase } from "@/pages/case-studies/GovindasStream";
@@ -35,12 +38,14 @@ function Shell() {
         style={{ scaleX: progress }}
       />
       <div className="fixed inset-0 grain-overlay z-[55]" />
+      <Seo />
       <ScrollToTop />
       <Navbar />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/products" element={<Products />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/case-studies/govindas-stream" element={<GovindasStreamCase />} />
@@ -52,12 +57,26 @@ function Shell() {
         </Routes>
       </main>
       <Footer />
+      <CustomizePanel />
     </div>
   );
 }
 
 function App() {
+  const [motionReduced, setMotionReduced] = useState(() => localStorage.getItem("gt-motion") === "reduced");
+
   useEffect(() => {
+    applySettings();
+    const sync = () => setMotionReduced(localStorage.getItem("gt-motion") === "reduced");
+    window.addEventListener("gt-settings", sync);
+    return () => window.removeEventListener("gt-settings", sync);
+  }, []);
+
+  useEffect(() => {
+    if (motionReduced) {
+      window.__lenis = null;
+      return;
+    }
     const lenis = new Lenis({
       duration: 1.15,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -87,12 +106,14 @@ function App() {
       window.__lenis = null;
       document.removeEventListener("click", onClick);
     };
-  }, []);
+  }, [motionReduced]);
 
   return (
-    <BrowserRouter>
-      <Shell />
-    </BrowserRouter>
+    <MotionConfig reducedMotion={motionReduced ? "always" : "never"}>
+      <BrowserRouter>
+        <Shell />
+      </BrowserRouter>
+    </MotionConfig>
   );
 }
 

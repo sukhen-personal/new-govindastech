@@ -1,0 +1,14 @@
+{
+  "name": "GovindasTech — Driven By Purpose. Powered by Intelligence.",
+  "short_name": "GovindasTech",
+  "description": "End-to-end OTT streaming platforms, cloud engineering and Sudarshana CRM intelligence, crafted with Vedic precision.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060D24",
+  "theme_color": "#030712",
+  "icons": [
+    { "src": "favicon-48x48.png", "sizes": "48x48", "type": "image/png" },
+    { "src": "favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

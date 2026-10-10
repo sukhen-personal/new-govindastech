@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { LogoMark } from "./Logo";
 
 const LINKS = [
   { label: "Home", to: "/" },
@@ -34,9 +33,7 @@ export const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
         <Link to="/" data-testid="nav-brand" className="flex items-center gap-3 group">
-          <span className="transition-transform duration-500 group-hover:rotate-45">
-            <LogoMark size={38} />
-          </span>
+          <img src="/logo.png" alt="GovindasTech logo" className="w-11 h-11 object-contain transition-transform duration-500 group-hover:scale-110" />
           <span className="leading-none">
             <span className="block font-royal font-bold text-lg tracking-wide text-slate-50">GovindasTech</span>
             <span className="block font-mantra text-[11px] text-gold/70 mt-0.5">गोविन्दस्टेक</span>

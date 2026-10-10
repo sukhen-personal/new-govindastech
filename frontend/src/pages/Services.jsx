@@ -1,24 +1,10 @@
 import { Link } from "react-router-dom";
-import {
-  Boxes, CloudCog, ServerCog, Smartphone, Globe2, Radio, Tv, Cpu, BrainCircuit, ShieldCheck, ArrowRight,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { PageHero, Tag } from "@/components/PageHero";
 import { Reveal, SectionHeading } from "@/components/Reveal";
 import { CtaBanner } from "@/components/CtaBanner";
 import { Marquee } from "@/components/Marquee";
-
-const SERVICES = [
-  { icon: Boxes, title: "Product Engineering", desc: "From idea to production, we build scalable digital products — discovery, MVP roadmaps, design systems and launch-ready engineering under one roof.", deliverables: ["Product discovery & MVP roadmaps", "Scalable product architecture", "Design systems & UI engineering", "Launch, iteration & growth support"], tags: ["React", "Next.js", "Node.js", "Go"] },
-  { icon: CloudCog, title: "Cloud & Platform Engineering", desc: "Scalable, secure and highly available cloud infrastructure — Kubernetes orchestration, multi-region failover and infrastructure as code.", deliverables: ["Kubernetes cluster design & orchestration", "Multi-region failover & disaster recovery", "IaC, CI/CD pipelines & GitOps", "Observability, logging & alerting"], tags: ["Kubernetes", "Docker", "AWS", "GCP"] },
-  { icon: ServerCog, title: "Backend Engineering", desc: "Robust APIs, microservices and high-performance systems built for concurrency, caching and event-driven scale.", deliverables: ["REST & GraphQL API engineering", "Event-driven microservices", "Caching layers & message queues", "Performance tuning & load testing"], tags: ["Go", "Node.js", "Java", "Redis", "Kafka"] },
-  { icon: Smartphone, title: "Mobile App Development", desc: "Native and cross-platform mobile apps that users love — offline-first, GPU-accelerated and store-ready.", deliverables: ["iOS & Android native apps", "Cross-platform Flutter / React Native builds", "Offline sync & push notifications", "App Store & Play release operations"], tags: ["Swift", "Kotlin", "Flutter", "React Native"] },
-  { icon: Globe2, title: "Web Development", desc: "Modern web applications, enterprise portals and SaaS platforms — accessible, fast and engineered for conversion.", deliverables: ["SaaS platform engineering", "Enterprise portals & dashboards", "WCAG 2.1 accessible interfaces", "Sub-second time-to-interactive"], tags: ["React", "Next.js", "TypeScript"] },
-  { icon: Radio, title: "OTT & Streaming Solutions", desc: "End-to-end OTT solutions for live, VOD and FAST platforms — from ingest to every screen on Earth.", deliverables: ["Live & VOD transcoding pipelines", "FAST channel orchestration + SSAI", "DRM, geo-fencing & entitlements", "Player SDKs for every device"], tags: ["FFmpeg", "AWS Elemental", "HLS", "DASH"] },
-  { icon: Tv, title: "TV App Development", desc: "Apple TV, Android TV, Fire TV and Roku apps with immersive ten-foot experiences and platform certification handled.", deliverables: ["Ten-foot UX design & engineering", "Platform certification & store launch", "Unified playback across devices", "Living-room analytics"], tags: ["tvOS", "Android TV", "Fire TV", "Roku", "Tizen", "WebOS"] },
-  { icon: Cpu, title: "IoT Solutions", desc: "Smart devices, automation, monitoring and connected ecosystems — from firmware handshake to fleet dashboard.", deliverables: ["Device provisioning & management", "Real-time telemetry pipelines", "Automation rule engines", "Fleet analytics dashboards"], tags: ["MQTT", "Kafka", "Node.js", "Flutter"] },
-  { icon: BrainCircuit, title: "AI & Automation", desc: "AI integration, chatbots and intelligent workflow automation that quietly remove toil from your business.", deliverables: ["AI assistants & chatbots", "Document intelligence pipelines", "Predictive insight engines", "Workflow automation"], tags: ["Python", "LLM APIs", "Node.js"] },
-  { icon: ShieldCheck, title: "Quality Assurance", desc: "Comprehensive testing, automation and quality engineering — release gates that keep perfection sacred.", deliverables: ["Automated test suites", "Performance & chaos testing", "Device & browser labs", "Release quality gates"], tags: ["Playwright", "CI/CD", "Load Testing"] },
-];
+import { SERVICES } from "@/data/services";
 
 const PROCESS = [
   { n: "01", title: "Discover", desc: "We understand your goals and requirements." },
@@ -48,27 +34,28 @@ export const Services = () => (
       </Reveal>
       <div className="grid md:grid-cols-2 gap-5 mt-12" data-testid="services-grid">
         {SERVICES.map((s, i) => (
-          <Reveal key={s.title} delay={0.04 * (i % 4)}>
-            <article className="group glass-vedic rounded-2xl p-7 h-full transition-all duration-300 hover:-translate-y-1 hover:border-gold-flute/50 hover:shadow-[0_0_50px_-14px_rgba(212,175,55,0.45)]" data-testid={`service-card-${i}`}>
+          <Reveal key={s.slug} delay={0.04 * (i % 4)}>
+            <Link
+              to={`/services/${s.slug}`}
+              data-testid={`service-card-${i}`}
+              className="group block glass-vedic rounded-2xl p-7 h-full transition-all duration-300 hover:-translate-y-1 hover:border-gold-flute/50 hover:shadow-[0_0_50px_-14px_rgba(212,175,55,0.45)]"
+            >
               <div className="flex items-start justify-between mb-5">
                 <div className="w-12 h-12 rounded-xl bg-gold/10 border border-gold/25 flex items-center justify-center">
                   <s.icon size={22} className="text-gold-flute" />
                 </div>
                 <span className="font-mono text-[10px] tracking-[0.25em] text-gold/40">{String(i + 1).padStart(2, "0")}</span>
               </div>
-              <h3 className="font-sans font-semibold text-xl text-slate-100">{s.title}</h3>
-              <p className="text-sm text-slate-400 font-light mt-2 leading-relaxed">{s.desc}</p>
-              <ul className="mt-5 space-y-2">
-                {s.deliverables.map((d) => (
-                  <li key={d} className="flex items-center gap-2.5 text-sm text-slate-300 font-light">
-                    <span className="w-1.5 h-1.5 rotate-45 bg-gold/60 shrink-0" /> {d}
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-wrap gap-2 mt-6">
-                {s.tags.map((t) => <Tag key={t}>{t}</Tag>)}
+              <h3 className="font-sans font-semibold text-xl text-slate-100 group-hover:text-gold-flute transition-colors">{s.title}</h3>
+              <p className="text-sm text-slate-400 font-light mt-2 leading-relaxed">{s.tagline}</p>
+              <div className="flex flex-wrap gap-2 mt-5">
+                {s.tags.slice(0, 4).map((t) => <Tag key={t}>{t}</Tag>)}
               </div>
-            </article>
+              <span className="inline-flex items-center gap-2 mt-6 text-sm font-mono tracking-wider text-gold-flute group-hover:text-gold transition-colors">
+                Enter the discipline
+                <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+            </Link>
           </Reveal>
         ))}
       </div>

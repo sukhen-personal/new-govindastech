@@ -10,6 +10,26 @@
         --foreground: 210 40% 98%;
         --border: 45 60% 51%;
         --radius: 0.5rem;
+        --c-gold: 212 175 55;
+        --c-glow: 245 158 11;
+        --c-flute: 251 191 36;
+    }
+    html[data-accent="peacock"] {
+        --c-gold: 13 148 136;
+        --c-glow: 6 182 212;
+        --c-flute: 103 232 249;
+    }
+    html[data-accent="crimson"] {
+        --c-gold: 225 29 72;
+        --c-glow: 244 63 94;
+        --c-flute: 253 164 175;
+    }
+    html[data-textsize="large"] { font-size: 112.5%; }
+    html[data-textsize="larger"] { font-size: 125%; }
+    html.reduce-motion *, html.reduce-motion *::before, html.reduce-motion *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
     html {
         scroll-behavior: auto;
@@ -21,11 +41,11 @@
         overflow-x: hidden;
     }
     ::selection {
-        background: rgba(212, 175, 55, 0.85);
+        background: rgb(var(--c-gold) / 0.85);
         color: #030712;
     }
     *:focus-visible {
-        outline: 2px solid #fbbf24;
+        outline: 2px solid rgb(var(--c-flute));
         outline-offset: 2px;
     }
     [data-debug-wrapper="true"] {
@@ -35,7 +55,7 @@
 
 @layer utilities {
     .text-gold-gradient {
-        background: linear-gradient(115deg, #fbbf24 0%, #d4af37 40%, #f59e0b 65%, #fde68a 100%);
+        background: linear-gradient(115deg, rgb(var(--c-flute)) 0%, rgb(var(--c-gold)) 40%, rgb(var(--c-glow)) 65%, rgb(var(--c-flute)) 100%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -44,14 +64,14 @@
         background: rgba(6, 13, 36, 0.72);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(212, 175, 55, 0.22);
+        border: 1px solid rgb(var(--c-gold) / 0.22);
     }
     .halo-gold {
-        box-shadow: 0 0 50px -10px rgba(212, 175, 55, 0.28), inset 0 1px 1px rgba(251, 191, 36, 0.25);
+        box-shadow: 0 0 50px -10px rgb(var(--c-gold) / 0.28), inset 0 1px 1px rgb(var(--c-flute) / 0.25);
     }
     .text-outline-gold {
         color: transparent;
-        -webkit-text-stroke: 1px rgba(212, 175, 55, 0.4);
+        -webkit-text-stroke: 1px rgb(var(--c-gold) / 0.4);
     }
     .grain-overlay {
         pointer-events: none;
@@ -72,7 +92,7 @@
         background-size: 640px 640px;
     }
     .gold-hairline {
-        background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6), transparent);
+        background: linear-gradient(90deg, transparent, rgb(var(--c-gold) / 0.6), transparent);
         height: 1px;
     }
 }
