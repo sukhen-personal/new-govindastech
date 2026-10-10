@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { SudarshanaRing, FluteWave } from "./Logo";
 
@@ -89,13 +90,13 @@ export const Hero = () => {
               Explore the OTT Platform
               <ArrowRight size={17} className="transition-transform duration-300 group-hover:translate-x-1" />
             </a>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               data-testid="hero-cta-consult"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-gold/40 text-gold-flute font-medium glass-vedic transition-all duration-300 hover:border-gold-flute/70 hover:-translate-y-0.5"
             >
               Initiate Consultation
-            </a>
+            </Link>
           </motion.div>
 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }}>

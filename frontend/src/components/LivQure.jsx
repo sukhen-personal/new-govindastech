@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
+import { ArrowRight, Activity, CalendarCheck, Pill, IndianRupee } from "lucide-react";
 import { Reveal, SectionHeading } from "./Reveal";
-import { Activity, CalendarCheck, Pill, IndianRupee } from "lucide-react";
 
 const METRICS = [
   { icon: Activity, value: "432+", label: "Active Patients" },
@@ -7,6 +8,29 @@ const METRICS = [
   { icon: Pill, value: "256", label: "Automated Prescriptions" },
   { icon: IndianRupee, value: "₹2.45L", label: "Revenue Run-Rate" },
 ];
+
+export const LivQurePanel = () => (
+  <div className="glass-vedic rounded-3xl p-7 halo-gold" data-testid="livqure-panel">
+    <div className="flex items-center justify-between mb-6">
+      <div>
+        <p className="text-xs font-mono tracking-wider text-slate-500">WELCOME BACK</p>
+        <p className="font-serif text-xl text-slate-100 mt-1">Dr. Sharma</p>
+      </div>
+      <span className="flex items-center gap-2 text-xs font-mono text-emerald-400">
+        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-glow-pulse" /> SYNCED
+      </span>
+    </div>
+    <div className="grid grid-cols-2 gap-4">
+      {METRICS.map((m, i) => (
+        <div key={m.label} className="rounded-xl border border-gold/15 bg-krishna-navy/50 p-5 transition-all duration-300 hover:border-gold-flute/40" data-testid={`livqure-metric-${i}`}>
+          <m.icon size={18} className="text-gold-flute mb-3" />
+          <p className="font-mono text-2xl text-slate-50">{m.value}</p>
+          <p className="text-xs font-mono tracking-wider text-slate-500 mt-1 uppercase">{m.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+);
 
 export const LivQure = () => (
   <section id="livqure" className="relative py-28 lg:py-36 bg-krishna-midnight/40 overflow-hidden">
@@ -26,30 +50,19 @@ export const LivQure = () => (
             and low-latency telemedicine — a product born of purpose, serving lives every day.
           </p>
           <p className="font-mantra text-gold/70 mt-6 text-lg">सर्वे सन्तु निरामयाः — May all be free of disease</p>
+          <Link
+            to="/case-studies/livqure"
+            data-testid="livqure-case-study-link"
+            className="group inline-flex items-center gap-2 mt-7 text-sm font-mono tracking-wider text-gold-flute hover:text-gold transition-colors"
+          >
+            Read the LivQure case study
+            <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
         </Reveal>
       </div>
 
       <Reveal className="lg:col-span-6" delay={0.12}>
-        <div className="glass-vedic rounded-3xl p-7 halo-gold" data-testid="livqure-panel">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <p className="text-xs font-mono tracking-wider text-slate-500">WELCOME BACK</p>
-              <p className="font-serif text-xl text-slate-100 mt-1">Dr. Sharma</p>
-            </div>
-            <span className="flex items-center gap-2 text-xs font-mono text-emerald-400">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-glow-pulse" /> SYNCED
-            </span>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            {METRICS.map((m, i) => (
-              <div key={m.label} className="rounded-xl border border-gold/15 bg-krishna-navy/50 p-5 transition-all duration-300 hover:border-gold-flute/40" data-testid={`livqure-metric-${i}`}>
-                <m.icon size={18} className="text-gold-flute mb-3" />
-                <p className="font-mono text-2xl text-slate-50">{m.value}</p>
-                <p className="text-xs font-mono tracking-wider text-slate-500 mt-1 uppercase">{m.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <LivQurePanel />
       </Reveal>
     </div>
   </section>

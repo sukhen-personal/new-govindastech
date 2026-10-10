@@ -9,25 +9,24 @@ Redesign https://govindastech.com/ into a superior aesthetic look and feel. Stre
 - Visitors exploring the LivQure healthcare product and company credibility
 
 ## Architecture
-- **Stack**: Static React 19 (CRA + craco), Tailwind CSS, framer-motion 11, lenis smooth scrolling, lucide-react icons. No backend, no database (user choice).
-- **Sections**: Glassmorphic navbar → kinetic hero (masked line reveal, Sudarshana ring, parallax peacock frame, telemetry ticker) → editorial tech marquee → GovindasStream OTT console (interactive live/FAST/analytics simulator) → Sudarshana CRM + live feedback widget → capabilities bento grid → LivQure spotlight → heritage + count-up stats → minimal enquiry form → cinematic footer with massive outline typography.
+- **Stack**: Static React 19 (CRA + craco) with react-router-dom multi-page routing, Tailwind CSS, framer-motion 11, lenis smooth scrolling, lucide-react icons. No backend, no database (user choice).
+- **Pages**: `/` Home (hero, marquee, OTT, CRM, capabilities, LivQure, stats, CTA) · `/services` (10 disciplines + 6-step process) · `/products` (5 products with status badges + 4 pipeline) · `/case-studies` (index) + 3 deep dives (`govindas-stream`, `livqure`, `sudarshana-crm`) with challenge/solution, architecture grids, interactive widgets, results & stack tags · `/tech-stack` (6 realms) · `/contact` (full form → mailto to hello@govindastech.com, FAQ accordion).
+- **Hosting helpers**: public/.htaccess (Apache) + public/_redirects (Netlify) for SPA deep-link fallback.
 - **Design system**: Krishna midnight navy (#030712/#060D24/#0B1536), sacred gold (#D4AF37/#F59E0B/#FBBF24), peacock teal/cyan; fonts: Cinzel/Cinzel Decorative, Playfair Display, Plus Jakarta Sans, JetBrains Mono, Tiro Devanagari Sanskrit.
 - **Brand mark**: Original SVG logo (peacock feather eye inside 8-spoke chakra), reused as favicon.svg.
 
 ## Implemented (2026-10-09)
-- Full Vedic redesign, all 10 sections from design guidelines
-- Kinetic on-load hero with masked line-by-line reveal of the punchline
-- Interactive OTT stream simulator with 3 modes and live telemetry
-- Interactive feedback widget (feather rating → sentiment telemetry readout)
-- Count-up stats, slow editorial marquee, parallax + rotating Sudarshana rings, Lenis momentum scroll, gold scroll-progress bar, grain overlay, starfield
-- Minimal enquiry form with divine success state (CLIENT-SIDE ONLY — no backend; submissions are not stored or emailed)
-- Verified at 375 / 768 / 1366 px; form, feedback widget, nav, anchors all exercised
+- Full Vedic redesign, kinetic hero, marquee, interactive OTT console, feedback widget, stats, Vedic footer
+- (2026-10-10) Multi-page restructure with react-router-dom; all content from original govindastech.com migrated (10 services, 6-step process, 5 products + 4 pipeline, contact email & FAQs)
+- (2026-10-10) Three deep-dive case study pages: GovindasStream (6-stage streaming pipeline), LivQure (6-component architecture + dashboard), Sudarshana CRM (6-spoke intelligence chakra + live feedback widget)
+- (2026-10-10) Tech Stack page (Languages, Web, Mobile & TV, Backend & Data, Cloud, Media & Streaming)
+- (2026-10-10) Contact page with original form fields; submit opens prefilled email to hello@govindastech.com (works on static hosting); FAQ accordion with original 3 FAQs
+- Verified at 375 / 768 / 1366 px across all pages; nav, mobile menu, FAQ, consoles exercised
 
 ## Backlog
-- P0: Wire enquiry form to a real backend/email service when user self-hosts (currently mocked client-side)
-- P1: Case studies / pricing pages, blog
-- P1: SEO meta expansion (OG images, JSON-LD) for self-hosted deployment
-- P2: Multi-language (Hindi/Sanskrit toggle), dark-gold alternate theme
+- P0: Wire enquiry form to a backend/form service if mailto flow is not enough (currently mailto — functional but depends on visitor's email client)
+- P1: OG images + JSON-LD for self-hosted SEO; per-page meta titles
+- P2: Hindi/Sanskrit language toggle; blog
 
 ## Notes
 - No credentials / auth — public marketing site. /app/memory/test_credentials.md not applicable.

@@ -1,24 +1,29 @@
 import { useEffect, useState } from "react";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { LogoMark } from "./Logo";
 
 const LINKS = [
-  { label: "OTT Platform", href: "#ott-platform" },
-  { label: "Sudarshana CRM", href: "#crm" },
-  { label: "Capabilities", href: "#capabilities" },
-  { label: "LivQure", href: "#livqure" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", to: "/" },
+  { label: "Services", to: "/services" },
+  { label: "Products", to: "/products" },
+  { label: "Case Studies", to: "/case-studies" },
+  { label: "Tech Stack", to: "/tech-stack" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => setOpen(false), [pathname]);
 
   return (
     <header
@@ -28,7 +33,7 @@ export const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
-        <a href="#top" data-testid="nav-brand" className="flex items-center gap-3 group">
+        <Link to="/" data-testid="nav-brand" className="flex items-center gap-3 group">
           <span className="transition-transform duration-500 group-hover:rotate-45">
             <LogoMark size={38} />
           </span>
@@ -36,26 +41,30 @@ export const Navbar = () => {
             <span className="block font-royal font-bold text-lg tracking-wide text-slate-50">GovindasTech</span>
             <span className="block font-mantra text-[11px] text-gold/70 mt-0.5">गोविन्दस्टेक</span>
           </span>
-        </a>
+        </Link>
 
-        <nav className="hidden lg:flex items-center gap-8" data-testid="nav-links">
+        <nav className="hidden lg:flex items-center gap-7" data-testid="nav-links">
           {LINKS.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
+            <NavLink
+              key={l.to}
+              to={l.to}
               data-testid={`nav-link-${l.label.toLowerCase().replace(/[^a-z]+/g, "-")}`}
-              className="text-sm font-medium text-slate-300 hover:text-gold-flute transition-colors duration-200 tracking-wide"
+              className={({ isActive }) =>
+                `text-sm font-medium tracking-wide transition-colors duration-200 ${
+                  isActive ? "text-gold-flute" : "text-slate-300 hover:text-gold-flute"
+                }`
+              }
             >
               {l.label}
-            </a>
+            </NavLink>
           ))}
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             data-testid="nav-cta-launch"
-            className="ml-2 px-5 py-2.5 text-sm font-semibold rounded-full bg-gradient-to-r from-gold to-gold-glow text-krishna-void halo-gold hover:brightness-110 transition-all duration-300 hover:-translate-y-0.5"
+            className="ml-1 px-5 py-2.5 text-sm font-semibold rounded-full bg-gradient-to-r from-gold to-gold-glow text-krishna-void halo-gold hover:brightness-110 transition-all duration-300 hover:-translate-y-0.5"
           >
             Launch OTT Console
-          </a>
+          </Link>
         </nav>
 
         <button
@@ -71,22 +80,22 @@ export const Navbar = () => {
       {open && (
         <div className="lg:hidden glass-vedic border-t border-gold/15 px-6 py-6 flex flex-col gap-4" data-testid="nav-mobile-menu">
           {LINKS.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="text-base text-slate-200 hover:text-gold-flute transition-colors"
+            <NavLink
+              key={l.to}
+              to={l.to}
+              className={({ isActive }) =>
+                `text-base transition-colors ${isActive ? "text-gold-flute" : "text-slate-200 hover:text-gold-flute"}`
+              }
             >
               {l.label}
-            </a>
+            </NavLink>
           ))}
-          <a
-            href="#contact"
-            onClick={() => setOpen(false)}
+          <Link
+            to="/contact"
             className="mt-2 px-5 py-3 text-center text-sm font-semibold rounded-full bg-gradient-to-r from-gold to-gold-glow text-krishna-void"
           >
             Launch OTT Console
-          </a>
+          </Link>
         </div>
       )}
     </header>

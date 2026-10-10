@@ -1,11 +1,19 @@
+import { Link } from "react-router-dom";
 import { LogoMark, FluteWave } from "./Logo";
 
 const LINKS = [
-  { label: "OTT Platform", href: "#ott-platform" },
-  { label: "Sudarshana CRM", href: "#crm" },
-  { label: "Capabilities", href: "#capabilities" },
-  { label: "LivQure", href: "#livqure" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", to: "/" },
+  { label: "Services", to: "/services" },
+  { label: "Products", to: "/products" },
+  { label: "Case Studies", to: "/case-studies" },
+  { label: "Tech Stack", to: "/tech-stack" },
+  { label: "Contact", to: "/contact" },
+];
+
+const CASES = [
+  { label: "GovindasStream OTT", to: "/case-studies/govindas-stream" },
+  { label: "LivQure Healthcare", to: "/case-studies/livqure" },
+  { label: "Sudarshana CRM", to: "/case-studies/sudarshana-crm" },
 ];
 
 export const Footer = () => (
@@ -28,16 +36,29 @@ export const Footer = () => (
           <FluteWave className="w-56 mt-6 opacity-70" />
         </div>
 
-        <div className="grid grid-cols-2 gap-14">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-12">
           <div>
             <p className="text-xs font-mono tracking-[0.25em] uppercase text-gold-flute mb-5">Navigate</p>
             <ul className="space-y-3">
               {LINKS.map((l) => (
-                <li key={l.href}>
-                  <a href={l.href} data-testid={`footer-link-${l.label.toLowerCase().replace(/[^a-z]+/g, "-")}`}
+                <li key={l.to}>
+                  <Link to={l.to} data-testid={`footer-link-${l.label.toLowerCase().replace(/[^a-z]+/g, "-")}`}
                      className="text-sm text-slate-400 hover:text-gold-flute transition-colors duration-200">
                     {l.label}
-                  </a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-mono tracking-[0.25em] uppercase text-gold-flute mb-5">Case Studies</p>
+            <ul className="space-y-3">
+              {CASES.map((l) => (
+                <li key={l.to}>
+                  <Link to={l.to} data-testid={`footer-case-${l.to.split("/").pop()}`}
+                     className="text-sm text-slate-400 hover:text-gold-flute transition-colors duration-200">
+                    {l.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -48,7 +69,7 @@ export const Footer = () => (
               <li>Bengaluru, Bharat</li>
               <li>Global CDN Nodes</li>
               <li>Security Audits · SOC2</li>
-              <li><a href="mailto:namaste@govindastech.com" data-testid="footer-email" className="hover:text-gold-flute transition-colors">namaste@govindastech.com</a></li>
+              <li><a href="mailto:hello@govindastech.com" data-testid="footer-email" className="hover:text-gold-flute transition-colors">hello@govindastech.com</a></li>
             </ul>
           </div>
         </div>
