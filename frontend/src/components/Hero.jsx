@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { SudarshanaRing, FluteWave } from "./Logo";
 
-const FEATHER_IMG =
-  "https://images.unsplash.com/photo-1578885564199-db62248858cf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwxfHxwZWFjb2NrJTIwZmVhdGhlciUyMG1hY3JvfGVufDB8fHx8MTc5MTU2ODc0MXww&ixlib=rb-4.1.0&q=85";
-
 const MaskedLine = ({ children, delay }) => (
   <span className="block overflow-hidden pb-2 -mb-2">
     <motion.span
@@ -25,7 +22,6 @@ const TICKER = ["32+ Projects Delivered", "24+ Products Engineered", "99.99% Upt
 export const Hero = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const yImg = useTransform(scrollYProgress, [0, 1], [0, 140]);
   const yRing = useTransform(scrollYProgress, [0, 1], [0, -80]);
   const fade = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
 
@@ -33,12 +29,15 @@ export const Hero = () => {
     <section id="top" ref={ref} className="relative min-h-screen flex flex-col justify-center overflow-hidden starfield pt-28 pb-16">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_70%_20%,rgba(37,99,235,0.16),transparent),radial-gradient(ellipse_50%_40%_at_15%_80%,rgba(13,148,136,0.12),transparent),radial-gradient(ellipse_40%_35%_at_50%_50%,rgba(212,175,55,0.06),transparent)]" />
 
-      <motion.div style={{ y: yRing }} className="absolute -right-56 -top-16 w-[720px] h-[720px] opacity-50 hidden md:block pointer-events-none">
+      <motion.div style={{ y: yRing }} className="absolute -right-56 -top-16 w-[720px] h-[720px] opacity-30 hidden md:block pointer-events-none">
         <SudarshanaRing className="w-full h-full" />
       </motion.div>
+      <motion.div style={{ y: yRing }} className="absolute -left-40 bottom-10 w-[380px] h-[380px] opacity-15 hidden lg:block pointer-events-none">
+        <SudarshanaRing fast className="w-full h-full" />
+      </motion.div>
 
-      <motion.div style={{ opacity: fade }} className="relative max-w-7xl mx-auto px-6 lg:px-10 w-full grid lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-7">
+      <motion.div style={{ opacity: fade }} className="relative max-w-7xl mx-auto px-6 lg:px-10 w-full">
+        <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -101,28 +100,6 @@ export const Hero = () => {
 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }}>
             <FluteWave className="w-72 mt-12 opacity-80" />
-          </motion.div>
-        </div>
-
-        <div className="lg:col-span-5 relative hidden lg:block">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.3, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            style={{ y: yImg }}
-            className="relative"
-          >
-            <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-gold/25 via-peacock-cyan/10 to-transparent blur-xl animate-glow-pulse" />
-            <div className="relative rounded-[2rem] overflow-hidden border border-gold/30 halo-gold">
-              <img src={FEATHER_IMG} alt="Peacock feather — the Mayur Pankh, crown of Krishna" className="w-full h-[520px] object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-krishna-void/85 via-transparent to-krishna-midnight/30" />
-              <div className="absolute bottom-5 left-5 right-5 glass-vedic rounded-xl px-4 py-3 flex items-center justify-between">
-                <span className="text-xs font-mono tracking-wider text-amber-200/80">MAYUR PANKH · SIGNAL FIDELITY</span>
-                <span className="flex items-center gap-2 text-xs font-mono text-peacock-cyan">
-                  <span className="w-1.5 h-1.5 rounded-full bg-peacock-cyan animate-glow-pulse" /> 4K UHD · DOLBY ATMOS
-                </span>
-              </div>
-            </div>
           </motion.div>
         </div>
       </motion.div>

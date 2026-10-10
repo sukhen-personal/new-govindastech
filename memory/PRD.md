@@ -28,7 +28,10 @@ Redesign https://govindastech.com/ into a superior aesthetic look and feel. Stre
 - (2026-10-10) Per-page OG images: 13 unique 1200×630 cards generated (3 case studies + 10 services) in public/og/, wired into the Seo component with per-page og:title/description/image/url
 - (2026-10-10) Theme scheduler: "Auto" accent option in the customization panel — Sacred Gold (morning/night), Peacock Teal (afternoon), Divine Crimson (evening), re-resolved every 60s
 - (2026-10-10) Hero wheel redesigned as an ornate Sudarshana Chakra SVG: 24 flame teeth, engraved rings, 16 tipped spokes, 8 lotus petals, counter-rotating dash ring, glowing core; enlarged to 720px framing the peacock hero image
-- Verified at 375 / 768 / 1366 px across all pages; nav, mobile menu, FAQ, consoles exercised; accent/text-size themes verified incl. persistence across reload; per-page og:image meta verified on service + case study pages; auto theme verified (resolves + labels current daypart)
+- (2026-10-10) Mayur Pankh image frame removed from hero; hero is now text-led with two faint chakras (large right at 30% opacity, small counter-rotating bottom-left)
+- (2026-10-10) Chakra continuity: faint 440px Sudarshana ring added to PageHero — appears on all inner pages (services, products, case studies, tech stack, contact, all detail pages)
+- (2026-10-10) "Sarthi" chatbot popup (bottom-left): rule-based charioteer with greeting, 4 quick chips, keyword-matched answers covering OTT/services/products/cases/tech/pricing/contact, navigation links inside replies, typing indicator; MOCKED (client-side rule-based, no LLM backend since site is static-only)
+- Verified at 375 / 768 / 1366 px across all pages; nav, mobile menu, FAQ, consoles exercised; accent/text-size themes verified incl. persistence across reload; per-page og:image meta verified on service + case study pages; auto theme verified (resolves + labels current daypart); Sarthi verified (chips, free-text answers, in-chat navigation, mobile layout)
 
 ## Backlog
 - P0: Wire enquiry form to a backend/form service if mailto flow is not enough (currently mailto — functional but depends on visitor's email client)

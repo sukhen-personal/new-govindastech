@@ -7,6 +7,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Seo } from "@/components/Seo";
 import { CustomizePanel, applySettings } from "@/components/CustomizePanel";
+import { Sarthi } from "@/components/Sarthi";
 import { Home } from "@/pages/Home";
 import { Services } from "@/pages/Services";
 import { ServiceDetail } from "@/pages/ServiceDetail";
@@ -58,6 +59,7 @@ function Shell() {
       </main>
       <Footer />
       <CustomizePanel />
+      <Sarthi />
     </div>
   );
 }

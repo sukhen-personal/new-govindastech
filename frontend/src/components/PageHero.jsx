@@ -1,8 +1,12 @@
 import { Reveal } from "./Reveal";
+import { SudarshanaRing } from "./Logo";
 
 export const PageHero = ({ eyebrow, title, mantra, desc, children }) => (
   <section className="relative pt-40 pb-16 starfield overflow-hidden">
     <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_75%_10%,rgba(37,99,235,0.14),transparent),radial-gradient(ellipse_45%_40%_at_10%_90%,rgba(13,148,136,0.1),transparent)]" />
+    <div className="absolute -right-28 -top-14 w-[440px] h-[440px] opacity-20 pointer-events-none hidden md:block" aria-hidden="true">
+      <SudarshanaRing className="w-full h-full" />
+    </div>
     <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
       <Reveal>
         <p className="text-xs uppercase tracking-[0.3em] font-mono text-gold-flute/90 mb-5">{eyebrow}</p>
