@@ -24,25 +24,39 @@ const FAQS = [
   },
 ];
 
+// Empty in production (same origin as the site); set REACT_APP_BACKEND_URL for local dev.
+const API_BASE = process.env.REACT_APP_BACKEND_URL || "";
+
+const EMPTY_FORM = { name: "", email: "", company: "", phone: "", interest: INTERESTS[0], subject: "", message: "", website: "" };
+
 const inputCls =
   "w-full rounded-xl border border-gold/20 bg-krishna-navy/50 px-4 py-3.5 text-slate-100 placeholder:text-slate-500 font-light focus:border-gold-flute/70 focus:outline-none transition-colors duration-200";
 
 export const ContactPage = () => {
-  const [form, setForm] = useState({ name: "", email: "", company: "", phone: "", interest: INTERESTS[0], subject: "", message: "" });
+  const [form, setForm] = useState(EMPTY_FORM);
+  const [status, setStatus] = useState({ state: "idle", msg: "" });
   const [openFaq, setOpenFaq] = useState(0);
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    const body = [
-      `Name: ${form.name}`,
-      `Email: ${form.email}`,
-      form.company && `Company: ${form.company}`,
-      form.phone && `Phone: ${form.phone}`,
-      `Interested in: ${form.interest}`,
-      "",
-      form.message,
-    ].filter(Boolean).join("\n");
-    window.location.href = `mailto:hello@govindastech.com?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(body)}`;
+    if (status.state === "sending") return;
+    setStatus({ state: "sending", msg: "" });
+    try {
+      const res = await fetch(`${API_BASE}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => null);
+        const detail = err && typeof err.detail === "string" ? err.detail : null;
+        throw new Error(detail || "Something went wrong. Please try again or email hello@govindastech.com.");
+      }
+      setStatus({ state: "sent", msg: "Thank you — your message has reached us. We'll reply soon." });
+      setForm(EMPTY_FORM);
+    } catch (err) {
+      setStatus({ state: "error", msg: err.message || "Could not send your message. Please try again." });
+    }
   };
 
   return (
@@ -95,18 +109,33 @@ export const ContactPage = () => {
                 placeholder="Describe the platform you dream of…"
                 value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
             </div>
+            {/* Honeypot: hidden from people, bots fill it and get silently dropped. */}
+            <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden" }}>
+              <label htmlFor="enquiry-website">Website</label>
+              <input id="enquiry-website" tabIndex={-1} autoComplete="off" value={form.website}
+                onChange={(e) => setForm({ ...form, website: e.target.value })} />
+            </div>
             <div className="sm:col-span-2">
               <button
                 type="submit"
+                disabled={status.state === "sending"}
                 data-testid="enquiry-submit"
-                className="group inline-flex items-center gap-2 px-9 py-4 rounded-full bg-gradient-to-r from-gold to-gold-glow text-krishna-void font-semibold halo-gold transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110"
+                className="group inline-flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed px-9 py-4 rounded-full bg-gradient-to-r from-gold to-gold-glow text-krishna-void font-semibold halo-gold transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110"
               >
-                Send Message
+                {status.state === "sending" ? "Sending…" : "Send Message"}
                 <SendHorizonal size={17} className="transition-transform duration-300 group-hover:translate-x-1" />
               </button>
-              <p className="text-xs font-mono tracking-wider text-slate-500 mt-4">
-                Submitting opens your email client with your details prefilled — nothing is sent automatically.
-              </p>
+              {status.state === "sent" && (
+                <p role="status" data-testid="enquiry-success" className="text-sm text-emerald-400 mt-4">{status.msg}</p>
+              )}
+              {status.state === "error" && (
+                <p role="alert" data-testid="enquiry-error" className="text-sm text-rose-400 mt-4">{status.msg}</p>
+              )}
+              {status.state !== "sent" && status.state !== "error" && (
+                <p className="text-xs font-mono tracking-wider text-slate-500 mt-4">
+                  We reply within one business day. Your details are used only to respond to your enquiry.
+                </p>
+              )}
             </div>
           </form>
         </Reveal>
